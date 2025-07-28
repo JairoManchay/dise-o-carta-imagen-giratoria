@@ -57,6 +57,41 @@ window.addEventListener('DOMContentLoaded', function() {
     var flipCard = document.querySelector('.envoltura-sobre .flip-card');
     var imgCarta = document.getElementById('img-carta');
     var back = flipCard ? flipCard.querySelector('.flip-card-back') : null;
+    
+    // Configurar y reproducir audio al cargar la página
+    if (audio) {
+        console.log('Audio element found, attempting to play...');
+        audio.volume = 0.5; // Volumen al 50%
+        audio.loop = true; // Reproducir en bucle
+        
+        // Verificar si el archivo se carga correctamente
+        audio.addEventListener('loadeddata', () => {
+            console.log('Audio file loaded successfully');
+        });
+        
+        audio.addEventListener('error', (e) => {
+            console.error('Error loading audio file:', e);
+        });
+        
+        // Intentar reproducir inmediatamente
+        const playAudio = () => {
+            audio.play().then(() => {
+                console.log('Audio playing successfully');
+            }).catch(error => {
+                console.log('Autoplay bloqueado, esperando interacción del usuario:', error);
+            });
+        };
+        
+        // Intentar reproducir inmediatamente
+        playAudio();
+        
+        // También intentar cuando el usuario haga cualquier clic en la página
+        document.addEventListener('click', playAudio, { once: true });
+        document.addEventListener('touchstart', playAudio, { once: true });
+    } else {
+        console.error('Audio element not found!');
+    }
+    
     if (flipCard) {
         // Hacer el giro aún más lento
         var inner = flipCard.querySelector('.flip-card-inner');
@@ -190,7 +225,20 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Función adicional para asegurar que el audio se reproduzca
+function ensureAudioPlays() {
+    if (audio && audio.paused) {
+        audio.currentTime = 0;
+        audio.play().catch(error => {
+            console.log('No se pudo reproducir el audio:', error);
+        });
+    }
+}
 
+// Añadir eventos para activar el audio en cualquier interacción
+document.addEventListener('click', ensureAudioPlays);
+document.addEventListener('touchstart', ensureAudioPlays);
+document.addEventListener('keydown', ensureAudioPlays);
 
 document.addEventListener("click", (e) => {
     if (
@@ -207,10 +255,6 @@ document.addEventListener("click", (e) => {
         e.target.matches(".corazon-dos")
     ) {
         envolturaDos.classList.toggle("abierto");
-        // Reproducir audio al abrir el segundo sobre
-        if (envolturaDos.classList.contains("abierto") && audio) {
-            audio.play().catch(()=>{});
-        }
     } else if(
         e.target.matches(".sobre-tres") ||
         e.target.matches(".solapa-derecha-tres") ||
@@ -242,10 +286,6 @@ document.addEventListener("click", (e) => {
     else if (e.target.matches(".sobre-dos *")) {
         if (!cartaDos.classList.contains("abierta")) {
             cartaDos.classList.add("mostrar-carta");
-            // Reproducir audio al mostrar la carta del segundo sobre
-            if (audio) {
-                audio.play().catch(()=>{});
-            }
             setTimeout(() => {
                 cartaDos.classList.remove("mostrar-carta");
                 cartaDos.classList.add("abierta");
@@ -286,69 +326,4 @@ document.addEventListener("click", (e) => {
             toggleCartaBotonesTres(false);
         }
     }
-});
-
-
-
-// Mostrar/ocultar botones según el estado de la carta
-function toggleCartaBotones(visible) {
-    const btnLeer = document.getElementById('btn-leer-carta');
-    const btnGuardar = document.getElementById('btn-guardar-carta');
-    if (btnLeer) {
-        btnLeer.style.display = visible ? 'block' : 'none';
-        btnLeer.style.zIndex = visible ? '2' : '';
-    }
-    if (btnGuardar) {
-        btnGuardar.style.display = visible ? 'block' : 'none';
-        btnGuardar.style.zIndex = visible ? '2' : '';
-    }
-}
-window.addEventListener('DOMContentLoaded', function() {
-    var flipCard = document.querySelector('.envoltura-sobre .flip-card');
-    var imgCarta = document.getElementById('img-carta');
-    var back = flipCard ? flipCard.querySelector('.flip-card-back') : null;
-    if (flipCard) {
-        // Hacer el giro aún más lento
-        var inner = flipCard.querySelector('.flip-card-inner');
-        if (inner) inner.style.transition = 'transform 3s cubic-bezier(.4,2,.6,1)';
-    }
-    // Ya no se agrega ningún event listener a la imagen ni a la carta. Solo los botones trabajan.
-    // Botón LEER: hace el flip
-    const btnLeer = document.getElementById('btn-leer-carta');
-    if (btnLeer) {
-        btnLeer.addEventListener('click', function(e) {
-            e.stopPropagation();
-            flipCard.classList.add('flipped');
-        });
-    }
-    // Botón GUARDAR: guarda la carta
-    const btnGuardar = document.getElementById('btn-guardar-carta');
-    if (btnGuardar) {
-        btnGuardar.addEventListener('click', function(e) {
-            e.stopPropagation();
-            flipCard.classList.remove('flipped');
-            toggleCartaBotones(false);
-            setTimeout(() => {
-                carta.classList.add('cerrando-carta');
-                envoltura.classList.remove('desactivar-sobre');
-                setTimeout(() => {
-                    carta.classList.remove('cerrando-carta');
-                    carta.classList.remove('abierta');
-                }, 500);
-            }, flipCard.classList.contains('flipped') ? 3000 : 0);
-        });
-    }
-    // Al cerrar el flip manualmente (clic en reverso), solo quitar el flip
-    if (back && flipCard) {
-        back.addEventListener('click', function(e) {
-            e.stopPropagation();
-            flipCard.classList.remove('flipped');
-        });
-    }
-    // Ocultar botones si la carta se guarda por otros medios
-     carta.addEventListener('transitionend', function() {
-         if (!carta.classList.contains('abierta')) {
-             toggleCartaBotones(false);
-         }
-     });
 });

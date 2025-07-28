@@ -1,0 +1,135 @@
+# 💌 Carta de San Valentín Interactiva
+
+Una aplicación web romántica e interactiva que presenta una experiencia única de lectura de cartas de amor con imágenes giratorias, música de fondo y animaciones elegantes.
+
+## ✨ Características
+
+- 🎵 **Música ambiente romántica** que se reproduce automáticamente
+- 💌 **Tres cartas interactivas** con sobres animados
+- 🔄 **Imágenes giratorias** con efecto flip en 3D
+- 🎨 **Diseño elegante** con tipografía Marck Script
+- 📱 **Responsive design** adaptable a diferentes dispositivos
+- 🎭 **Animaciones fluidas** y transiciones suaves
+
+## 🚀 Demo
+
+Simplemente abre el archivo `index.html` en tu navegador para experimentar la carta interactiva.
+
+## 📁 Estructura del Proyecto
+
+```
+carta-pedida/
+├── index.html          # Página principal
+├── style.css           # Estilos y animaciones
+├── script_v2.js        # Lógica principal (versión actual)
+├── script_v1.js        # Versión anterior del script
+├── audios/
+│   └── audio_romantico.mp3  # Música de fondo
+├── img/
+│   ├── imagen_fondo.jpg     # Imagen de fondo
+│   ├── primer_img.jpg       # Imagen de la primera carta
+│   ├── segundo_img.jpg      # Imagen de la segunda carta
+│   └── tercer_img.jpg       # Imagen de la tercera carta
+└── README.md           # Este archivo
+```
+
+## 🛠️ Tecnologías Utilizadas
+
+- **HTML5** - Estructura semántica
+- **CSS3** - Estilos avanzados y animaciones 3D
+- **JavaScript ES6** - Interactividad y lógica
+- **Google Fonts** - Tipografía Marck Script
+- **Audio API** - Reproducción de música ambiente
+
+## 🎮 Cómo Usar
+
+1. **Abrir la aplicación**: Abre `index.html` en tu navegador
+2. **Música automática**: La música romántica comenzará automáticamente
+3. **Interactuar con las cartas**: 
+   - Haz clic en los sobres para abrirlos
+   - Usa los botones 👁️ para leer las cartas
+   - Usa los botones ⬅️ para guardar/cerrar las cartas
+4. **Disfrutar**: Experimenta las animaciones y lee los mensajes románticos
+
+## 🎨 Características Técnicas
+
+### Animaciones CSS
+- Transformaciones 3D para el efecto flip
+- Transiciones suaves entre estados
+- Efectos hover interactivos
+
+### JavaScript Features
+- Manejo dinámico del DOM
+- Control de audio automático
+- Gestión de estados de las cartas
+- Funciones modulares para cada carta
+
+### Responsive Design
+- Adaptable a diferentes tamaños de pantalla
+- Optimizado para dispositivos móviles
+- Uso de viewport meta tag
+
+## 🔧 Instalación y Configuración
+
+### Requisitos
+- Navegador web moderno (Chrome, Firefox, Safari, Edge)
+- No requiere instalación de dependencias
+
+### Pasos
+1. Clona o descarga el repositorio
+2. Asegúrate de que todos los archivos estén en la estructura correcta
+3. Abre `index.html` en tu navegador
+4. ¡Disfruta de la experiencia romántica!
+
+## 📝 Personalización
+
+### Cambiar las Imágenes
+Reemplaza los archivos en la carpeta `img/` con tus propias imágenes:
+- `primer_img.jpg` - Primera carta
+- `segundo_img.jpg` - Segunda carta  
+- `tercer_img.jpg` - Tercera carta
+- `imagen_fondo.jpg` - Fondo de la aplicación
+
+### Cambiar la Música
+Reemplaza `audio_romantico.mp3` en la carpeta `audios/` con tu música favorita.
+
+### Modificar los Mensajes
+Edita el contenido HTML en `index.html` para personalizar los mensajes de las cartas.
+
+## 🎯 Casos de Uso
+
+- 💕 **Declaraciones de amor** personalizadas
+- 🎂 **Regalos de aniversario** digitales
+- 💌 **Cartas de San Valentín** interactivas
+- 🎁 **Sorpresas románticas** creativas
+- 📱 **Experiencias web** memorables
+
+## 🤝 Contribuciones
+
+¡Las contribuciones son bienvenidas! Si tienes ideas para mejorar la aplicación:
+
+1. Fork el repositorio
+2. Crea una rama para tu feature (`git checkout -b feature/nueva-caracteristica`)
+3. Commit tus cambios (`git commit -am 'Añadir nueva característica'`)
+4. Push a la rama (`git push origin feature/nueva-caracteristica`)
+5. Crea un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Siéntete libre de usarlo y modificarlo para tus propios proyectos románticos.
+
+## 👨‍💻 Autor
+
+**JairoManchay**
+
+## 🙏 Agradecimientos
+
+- Fuente tipográfica por Google Fonts (Marck Script)
+- Inspirado en el amor y la creatividad
+- Diseño centrado en la experiencia del usuario
+
+---
+
+💡 **Tip**: Para la mejor experiencia, usa auriculares y disfruta en una habitación con poca luz para crear el ambiente perfecto.
+
+❤️ Hecho con amor para crear momentos especiales
