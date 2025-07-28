@@ -1,16 +1,8 @@
-# Ignorar carpeta de imágenes privadas
+# Ignorar SOLO la carpeta de imágenes privadas
 img/fotos-priv/
 
-# Ignorar archivos de imagen específicos
-*.jpg
-*.jpeg
-*.png
-*.gif
-*.bmp
-*.webp
-
-# Ignorar archivos de audio (opcional)
-audios/
+# Ignorar archivos de audio (opcional si son privados)
+# audios/
 
 # Ignorar archivos del sistema
 .DS_Store
