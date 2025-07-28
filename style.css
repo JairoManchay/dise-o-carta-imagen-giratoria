@@ -1,0 +1,491 @@
+/* Flip card efecto para la carta del tercer sobre */
+.flip-card-tres {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+    cursor: pointer;
+}
+.flip-card-inner-tres {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(.4,2,.6,1);
+    transform-style: preserve-3d;
+}
+.flip-card-tres.flipped .flip-card-inner-tres {
+    transform: rotateY(180deg);
+}
+.flip-card-front-tres, .flip-card-back-tres {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.flip-card-front-tres {
+    background: #fff;
+    z-index: 2;
+}
+.flip-card-back-tres {
+    background: var(--primario);
+    transform: rotateY(180deg);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Flip card efecto para la carta del segundo sobre */
+.flip-card-dos {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+    cursor: pointer;
+}
+.flip-card-inner-dos {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(.4,2,.6,1);
+    transform-style: preserve-3d;
+}
+.flip-card-dos.flipped .flip-card-inner-dos {
+    transform: rotateY(180deg);
+}
+.flip-card-front-dos, .flip-card-back-dos {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.flip-card-front-dos {
+    background: #fff;
+    z-index: 2;
+}
+.flip-card-back-dos {
+    background: var(--primario);
+    transform: rotateY(180deg);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 600px) {
+  .envoltura-sobre, .envoltura-sobre-dos, .envoltura-sobre-tres {
+    width: 295px !important;
+    min-width: 0 !important;
+    max-width: 99vw !important;
+    margin: 0 auto !important;
+  }
+  .sobre, .sobre-dos, .sobre-tres {
+    width: 295px !important;
+    height: 200px !important;
+    min-width: 0 !important;
+    max-width: 99vw !important;
+  }
+  .carta, .carta-dos, .carta-tres, .flip-card {
+    width: 265px !important;
+    height: 170px !important;
+    min-width: 0 !important;
+    max-width: 96vw !important;
+  }
+  .flip-card-inner {
+    min-width: 0 !important;
+    max-width: 96vw !important;
+  }
+  .solapa-derecha, .solapa-izquierda, .solapa-derecha-dos, .solapa-izquierda-dos, .solapa-derecha-tres, .solapa-izquierda-tres {
+    border-width: 0 65px 65px 65px !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 auto !important;
+  }
+}
+/* Botones de la carta */
+/* Botones de la carta para ambos sobres */
+#btn-leer-carta, #btn-guardar-carta, #btn-leer-carta-dos, #btn-guardar-carta-dos, #btn-leer-carta-tres, #btn-guardar-carta-tres, .btn-carta {
+  position: fixed;
+  top: 20px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+  transition: opacity 0.3s;
+  z-index: 9999;
+}
+
+@media (max-width: 600px) {
+  #btn-leer-carta, #btn-guardar-carta, #btn-leer-carta-dos, #btn-guardar-carta-dos, #btn-leer-carta-tres, #btn-guardar-carta-tres, .btn-carta {
+    font-size: 2.2rem;
+    top: 10px;
+  }
+  #btn-leer-carta, #btn-leer-carta-dos, #btn-leer-carta-tres {
+    right: 10px;
+  }
+  #btn-guardar-carta, #btn-guardar-carta-dos, #btn-guardar-carta-tres {
+    left: 10px;
+  }
+}
+#btn-leer-carta, #btn-leer-carta-dos, #btn-leer-carta-tres {
+  right: 30px;
+}
+#btn-guardar-carta, #btn-guardar-carta-dos, #btn-guardar-carta-tres {
+  left: 30px;
+}
+.icon-carta {
+  font-size: 1.3em;
+  vertical-align: middle;
+}
+/* Flip card efecto para la carta principal */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+    cursor: pointer;
+}
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(.4,2,.6,1);
+    transform-style: preserve-3d;
+}
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.flip-card-front {
+    background: #fff;
+    z-index: 2;
+}
+.flip-card-back {
+    background: var(--primario);
+    transform: rotateY(180deg);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Grid de 3 columnas para laptop en adelante */
+@media screen and (min-width: 1024px) {
+    .contenedor {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4rem;
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .contenedor > br {
+        display: none;
+    }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primario: #fff;
+    --fondo: #ffebf2; 
+    --fondo-sobre: #ffe3ed; 
+    --solapa-sobre: #ffccd5; 
+    --cuerpo-sobre: #ffc1d1; 
+    --sombra: rgba(0, 0, 0, 0.2);
+    --texto: #003049; 
+    --corazon: #ff477e; 
+}
+
+body {
+    background: url("img/imagen_fondo.jpg");
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+h1 {
+    font-family: "Marck Script", serif; 
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 50px;
+    color: #444;
+}
+
+.contenedor {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.envoltura-sobre,
+.envoltura-sobre-dos,
+.envoltura-sobre-tres {
+    position: relative;
+    background-color: var(--fondo-sobre);
+    box-shadow: 0 0 40px var(--sombra);
+    border-radius: 15px;
+    margin: 0 auto 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sobre,
+.sobre-dos,
+.sobre-tres {
+    position: relative;
+    width: 400px;
+    height: 300px;
+}
+
+.sobre::before,
+.sobre-dos::before,
+.sobre-tres::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    border-top: 180px solid var(--solapa-sobre);
+    border-right: 200px solid transparent;
+    border-left: 200px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+    border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+    .sobre::before,
+    .sobre-dos::before,
+    .sobre-tres::before {
+        border-top: 110px solid var(--solapa-sobre);
+        border-right: 100px solid transparent;
+        border-left: 100px solid transparent;
+    }
+}
+
+.solapa-derecha,
+.solapa-derecha-dos,
+.solapa-derecha-tres {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    background-color: var(--cuerpo-sobre);
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.solapa-izquierda,
+.solapa-izquierda-dos,
+.solapa-izquierda-tres {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+    background-color: var(--cuerpo-sobre);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.carta,
+.carta-dos,
+.carta-tres {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primario);
+    text-align: center;
+    box-shadow: 0 0 5px var(--sombra);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform .5s ease-in-out;
+}
+
+.contenido,
+.contenido-dos,
+.contenido-tres {
+    font-family: "Gill Sans", Calibri, sans-serif;
+    color: var(--texto);
+    text-align: left;
+    font-size: 12px;
+    border: 3px dotted var(--texto);
+    padding: 10px;
+    height: 100%;
+    line-height: 14px;
+    cursor: pointer;
+    overflow-Y: scroll;
+}
+
+.corazon,
+.corazon-dos,
+.corazon-tres {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: var(--corazon);
+    transform: translate(-50%,0) rotate(45deg);
+    transition: transform 0.5s ease-in-out 1s;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.corazon::before,
+.corazon::after,
+.corazon-dos::before,
+.corazon-dos::after,
+.corazon-tres::before,
+.corazon-tres::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: var(--corazon);
+    border-radius: 100%;
+
+}
+
+.corazon:before,
+.corazon-dos:before,
+.corazon-tres:before {
+    top: -15px;
+}
+
+.corazon:after,
+.corazon-dos:after,
+.corazon-tres:after {
+    right: 15px;
+}
+
+/*Agregar clases dinamicos*/
+.abierto .sobre::before,
+.abierto .sobre-dos::before,
+.abierto .sobre-tres::before {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.abierto .corazon,
+.abierto .corazon-dos,
+.abierto .corazon-tres {
+    transform: rotate(90deg);
+    transition-delay: 0.4s;
+}
+
+.carta.mostrar-carta,
+.carta-dos.mostrar-carta,
+.carta-tres.mostrar-carta {
+    transform: translateY(-290px);
+    transition: transform .5s ease-in-out;
+}
+
+.carta.cerrando-carta,
+.carta-dos.cerrando-carta,
+.carta-tres.cerrando-carta {
+    transform: translateY(-290px);
+    transition: transform .5s ease-in-out;
+}
+
+.carta.abierta,
+.carta-dos.abierta,
+.carta-tres.abierta {
+    z-index: 10000;
+}
+
+.envoltura-sobre.desactivar-sobre .sobre::before,
+.envoltura-sobre-dos.desactivar-sobre .sobre-dos::before,
+.envoltura-sobre-tres.desactivar-sobre .sobre-tres::before {
+    pointer-events: none;
+}
+
+/*Scroll personalizado*/
+
+/*
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--cuerpo-sobre);
+    border-radius: 4px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--corazon);
+}
+*/
+
+/*Vista celular*/
+
+@media screen and (max-width:400px) {
+    .contenedor {
+        width: 300px;
+    }
+
+    .sobre,
+    .sobre-dos,
+    .sobre-tres {
+        width: 300px;
+        height: 250px;
+    }
+
+    .sobre::before,
+    .sobre-dos::before,
+    .sobre-tres::before {
+        border-top:150px solid var(--solapa-sobre) ;
+        border-right: 150px solid transparent;
+        border-left: 150px solid transparent;
+    }
+
+}
+
+
+
+
+
+
