@@ -1,5 +1,5 @@
 # Ignorar SOLO la carpeta de imágenes privadas
-img/fotos-priv/
+
 
 # Ignorar archivos de audio (opcional si son privados)
 # audios/
